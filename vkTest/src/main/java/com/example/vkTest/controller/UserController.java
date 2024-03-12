@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.vkTest.audit.Audit;
 import com.example.vkTest.model.User;
 import com.example.vkTest.service.UserService;
 
@@ -17,11 +18,13 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Audit("welcome")
     @GetMapping("/welcome")
     public String welcome() {
         return "Welcome to the unprotected page";
     }
 
+    @Audit("user login")
     @PostMapping("/user")
     public String addUser(@RequestBody User user) {
         userService.addUser(user);
