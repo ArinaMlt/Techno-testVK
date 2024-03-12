@@ -44,15 +44,15 @@
          -ROLE_POSTS_VIEWER -- имеет доступ только  к обработчику getPosts
          -ROLE_POSTS_EDITOR -- createPost, updatePost, deletePost
 
-         ROLE_USERS_VIEWER -- имеет доступ только  к обработчику getUsers
+         -ROLE_USERS_VIEWER -- имеет доступ только  к обработчику getUsers
          -ROLE_USERS_EDITOR -- createUsers, updateUsers, deleteUsers
 
-         ROLE_ALBUMS_VIEWER -- имеет доступ только  к обработчику getAlbums
+         -ROLE_ALBUMS_VIEWER -- имеет доступ только  к обработчику getAlbums
          -ROLE_ALBUMS_EDITOR -- createAlbums, updateAlbums, deleteAlbums
 
 4.  Добавлен rest api для создания пользователей
 
-Создание нового пользователя (Postmen):
+Создание нового пользователя (Postman):
 
 POST
 localhost:8080/api/new/user
