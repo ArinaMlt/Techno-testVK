@@ -45,6 +45,7 @@ public class ProxyController {
         return restTemplate.postForEntity(url, postJson, String.class);
     }
 
+    @Audit("put posts")
     @PutMapping("/posts/{postId}")
     @PreAuthorize("hasAuthority('ROLE_POSTS') || hasAuthority('ROLE_POSTS_EDITOR')")
     public ResponseEntity<String> updatePost(@PathVariable Long postId, @RequestBody String postJson) {
@@ -58,6 +59,7 @@ public class ProxyController {
         return response;
     }
 
+    @Audit("delete posts")
     @DeleteMapping("/posts/{postId}")
     @PreAuthorize("hasAuthority('ROLE_POSTS') || hasAuthority('ROLE_POSTS_EDITOR')")
     public ResponseEntity<Void> deletePost(@PathVariable Long postId) {
@@ -74,6 +76,7 @@ public class ProxyController {
         return restTemplate.getForEntity(url, String.class);
     }
 
+    @Audit("post users")
     @PostMapping("/users/**")
     @PreAuthorize("hasAuthority('ROLE_USERS') || hasAuthority('ROLE_USERS_EDITOR')")
     public ResponseEntity<String> createUser(@RequestBody String postJson) {
@@ -81,6 +84,7 @@ public class ProxyController {
         return restTemplate.postForEntity(url, postJson, String.class);
     }
 
+    @Audit("put users")
     @PutMapping("/users/{userId}")
     @PreAuthorize("hasAuthority('ROLE_USERS') || hasAuthority('ROLE_USERS_EDITOR')")
     public ResponseEntity<String> updateUser(@PathVariable Long postId,
@@ -95,6 +99,7 @@ public class ProxyController {
         return response;
     }
 
+    @Audit("delete users")
     @DeleteMapping("/users/{userId}")
     @PreAuthorize("hasAuthority('ROLE_USERS') || hasAuthority('ROLE_USERS_EDITOR')")
     public ResponseEntity<Void> deleteUser(@PathVariable Long postId) {
@@ -111,6 +116,7 @@ public class ProxyController {
         return restTemplate.getForEntity(url, String.class);
     }
 
+    @Audit("post albums")
     @PostMapping("/albums/**")
     @PreAuthorize("hasAuthority('ROLE_ALBUMS') || hasAuthority('ROLE_ALBUMS_EDITOR')")
     public ResponseEntity<String> createAlbums(@RequestBody String postJson) {
@@ -118,6 +124,7 @@ public class ProxyController {
         return restTemplate.postForEntity(url, postJson, String.class);
     }
 
+    @Audit("put albums")
     @PutMapping("/albums/{albumId}")
     @PreAuthorize("hasAuthority('ROLE_ALBUMS') || hasAuthority('ROLE_ALBUMS_EDITOR')")
     public ResponseEntity<String> updateAlbums(@PathVariable Long postId, @RequestBody String postJson) {
@@ -131,6 +138,7 @@ public class ProxyController {
         return response;
     }
 
+    @Audit("delete albums")
     @DeleteMapping("/albums/{albumsId}")
     @PreAuthorize("hasAuthority('ROLE_ALBUMS') || hasAuthority('ROLE_ALBUMS_EDITOR')")
     public ResponseEntity<Void> deleteAlbums(@PathVariable Long postId) {
